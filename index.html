@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>论坛理事和高级顾问近期有关表态和动向 - 2026年9月</title>
+<style>
+/* ===== 基础重置 ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ===== CSS 变量（博鳌蓝主题） ===== */
+:root {
+  --blue: #1A5276;
+  --blue-dark: #0D3B5E;
+  --blue-light: #D4E6F1;
+  --blue-ultra-light: #EBF5FB;
+  --bg: #F2F6FA;
+  --card-bg: #FFFFFF;
+  --text: #1C2833;
+  --text-secondary: #566573;
+  --text-muted: #99A3A4;
+  --border: #D5D8DC;
+  --shadow: 0 2px 16px rgba(26, 82, 118, 0.10);
+  --shadow-hover: 0 8px 30px rgba(26, 82, 118, 0.20);
+  --radius: 16px;
+  --radius-sm: 8px;
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+}
+
+/* ===== 布局 ===== */
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.7; min-height: 100vh; }
+
+/* ===== 顶部横幅 ===== */
+.hero {
+  background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 30%, #2471A3 60%, #2E86C1 100%);
+  padding: 44px 20px 38px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle at 25% 40%, rgba(255,255,255,0.12) 0%, transparent 50%),
+              radial-gradient(circle at 75% 60%, rgba(255,255,255,0.08) 0%, transparent 50%);
+  animation: shimmer 10s ease-in-out infinite;
+}
+@keyframes shimmer { 0%,100% { transform: translate(0,0); } 50% { transform: translate(1.5%,0.8%); } }
+.hero-content { position: relative; z-index: 1; }
+.hero h1 {
+  font-size: 1.9em;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.hero .subtitle { font-size: 0.98em; color: rgba(255,255,255,0.88); font-weight: 500; letter-spacing: 1px; }
+.hero .date-badge {
+  display: inline-block;
+  margin-top: 14px;
+  background: rgba(255,255,255,0.9);
+  color: var(--blue);
+  padding: 5px 20px;
+  border-radius: 20px;
+  font-size: 0.92em;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* ===== 统计栏 ===== */
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px 20px;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.stat-item { text-align: center; }
+.stat-num { font-size: 1.6em; font-weight: 700; color: var(--blue); }
+.stat-label { font-size: 0.82em; color: var(--text-muted); margin-top: 3px; }
+
+/* ===== 标签筛选栏 ===== */
+.tag-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 24px;
+  justify-content: center;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+}
+.tag-filter {
+  padding: 5px 15px;
+  border-radius: 16px;
+  font-size: 0.82em;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  background: #fff;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  user-select: none;
+}
+.tag-filter:hover { border-color: var(--blue); color: var(--blue-dark); background: var(--blue-ultra-light); }
+.tag-filter.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+.tag-filter .count { margin-left: 4px; opacity: 0.7; font-size: 0.85em; }
+
+/* ===== 卡片网格 ===== */
+.container { max-width: 1100px; margin: 0 auto; padding: 28px 20px 48px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(460px, 1fr)); gap: 20px; }
+
+/* ===== 人物聚合卡片 ===== */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 0;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); border-color: var(--blue); }
+.card.hidden { display: none; }
+
+/* ===== 人物卡片头部 ===== */
+.card-person-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 22px;
+  background: linear-gradient(135deg, var(--blue-ultra-light) 0%, #FFFFFF 100%);
+  border-bottom: 1.5px solid var(--blue-light);
+}
+.person-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  font-weight: 700;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(26,82,118,0.25);
+}
+.person-info { flex: 1; display: flex; flex-direction: column; }
+.person-name { font-size: 1.15em; font-weight: 700; color: var(--blue-dark); line-height: 1.3; }
+.person-role { font-size: 0.8em; color: var(--text-muted); margin-top: 1px; }
+.person-count {
+  font-size: 0.78em;
+  color: var(--blue);
+  font-weight: 600;
+  background: #fff;
+  padding: 3px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--blue-light);
+  white-space: nowrap;
+}
+
+/* ===== 卡片子条目列表 ===== */
+.card-items { padding: 0; }
+.card-item { padding: 18px 22px; }
+.card-item + .card-item { border-top: 1px dashed var(--border); }
+
+/* ===== 子条目标签 ===== */
+.item-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+.tag {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 10px;
+  font-size: 0.72em;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+/* 标签颜色方案 — 理事/高级顾问动态场景 */
+.tag-statement  { background: #E3F2FD; color: #1565C0; }  /* 蓝 - 公开表态/演讲/专访 */
+.tag-meeting    { background: #E8EAF6; color: #283593; }  /* 靛 - 高层会见/会晤/座谈 */
+.tag-cooperation{ background: #E0F2F1; color: #00695C; }  /* 青 - 签约合作/战略合作 */
+.tag-visit      { background: #E8F5E9; color: #2E7D32; }  /* 绿 - 外事访问/访华/出访 */
+.tag-forum      { background: #FFF3E0; color: #E65100; }  /* 橙 - 论坛活动/理事会/年会 */
+.tag-policy     { background: #F3E5F5; color: #7B1FA2; }  /* 紫 - 政策观点/全球治理/多边主义 */
+.tag-corporate  { background: #E0F7FA; color: #00838F; }  /* 天蓝 - 企业动态/投资/发布 */
+.tag-default    { background: #F5F5F5; color: #737373; }  /* 灰 - 其他 */
+
+/* ===== 子条目内容 ===== */
+.item-title { font-size: 0.98em; font-weight: 600; color: var(--text); margin-bottom: 6px; line-height: 1.5; }
+.item-summary { font-size: 0.9em; color: var(--text-secondary); line-height: 1.75; margin-bottom: 10px; text-align: justify; }
+.item-meta { display: flex; align-items: center; justify-content: space-between; font-size: 0.78em; color: var(--text-muted); }
+.item-source { display: flex; align-items: center; gap: 5px; }
+.source-icon {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--blue-ultra-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65em;
+}
+.item-link {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85em;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--blue);
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.item-link:hover { background: var(--blue); color: #fff; }
+
+/* ===== 页脚 ===== */
+.footer {
+  text-align: center;
+  padding: 28px 20px;
+  color: var(--text-muted);
+  font-size: 0.84em;
+  border-top: 1px solid var(--border);
+  margin-top: 10px;
+  background: var(--card-bg);
+}
+.footer .brand { color: var(--blue); font-weight: 600; }
+
+/* ===== 响应式 ===== */
+@media (max-width: 640px) {
+  .hero h1 { font-size: 1.35em; letter-spacing: 1px; }
+  .hero .subtitle { font-size: 0.85em; }
+  .card-grid { grid-template-columns: 1fr; }
+  .stats-bar { gap: 20px; }
+  .stat-num { font-size: 1.3em; }
+  .card-person-header { padding: 12px 16px; }
+  .card-item { padding: 14px 16px; }
+  .person-badge { width: 38px; height: 38px; font-size: 0.95em; }
+  .person-name { font-size: 1.02em; }
+}
+
+/* ===== 无结果 ===== */
+.no-result { grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-muted); }
+.no-result .icon { font-size: 3em; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+
+<!-- ========== 顶部横幅 ========== -->
+<header class="hero">
+  <div class="hero-content">
+    <h1>论坛理事和高级顾问近期有关表态和动向</h1>
+    <p class="subtitle">博鳌亚洲论坛 · 理事及高级顾问 · 近期动态精选</p>
+    <span class="date-badge">📅 2026年9月</span>
+  </div>
+</header>
+
+<!-- ========== 统计栏 ========== -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">18</div><div class="stat-label">动态总数</div></div>
+  <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">覆盖人物</div></div>
+  <div class="stat-item"><div class="stat-num">18</div><div class="stat-label">资讯来源</div></div>
+</div>
+
+<!-- ========== 标签筛选栏 ========== -->
+<div class="tag-filter-bar" id="tagFilterBar">
+  <span class="tag-filter active" data-tag="all">全部<span class="count">18</span></span>
+  <span class="tag-filter" data-tag="论坛活动">#论坛活动<span class="count">9</span></span>
+  <span class="tag-filter" data-tag="政策观点">#政策观点<span class="count">7</span></span>
+  <span class="tag-filter" data-tag="公开表态">#公开表态<span class="count">6</span></span>
+  <span class="tag-filter" data-tag="高层会见">#高层会见<span class="count">2</span></span>
+  <span class="tag-filter" data-tag="签约合作">#签约合作<span class="count">2</span></span>
+  <span class="tag-filter" data-tag="外事访问">#外事访问<span class="count">1</span></span>
+  <span class="tag-filter" data-tag="企业动态">#企业动态<span class="count">1</span></span>
+</div>
+
+<!-- ========== 卡片网格 ========== -->
+<main class="container">
+  <div class="card-grid" id="cardGrid">
+
+    <!-- 萨克斯 -->
+    <div class="card" data-tags="公开表态,政策观点,论坛活动" tabindex="0">
+      <div class="card-person-header">
+        <div class="person-badge">萨</div>
+        <div class="person-info">
+          <span class="person-name">杰弗里·萨克斯</span>
+          <span class="person-role">高级顾问 · 哥伦比亚大学教授、可持续发展中心主任</span>
+        </div>
+        <span class="person-count">3 条动态</span>
+      </div>
+      <div class="card-items">
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-statement">#公开表态</span><span class="tag tag-policy">#政策观点</span></div>
+          <div class="item-title">出席金砖峰会前夕圆桌会谈中印合作</div>
+          <div class="item-summary">9月10日，金砖国家领导人峰会前夕，萨克斯在新德里出席圆桌会时表示，随着美国日益"不稳定"，中国和印度可共同塑造新的世界秩序，中国对印度成功"利害重大"。他建议印度退出"四方安全对话"、加强对华关系，称世界面临的最大危险是"美国的错觉"及其单边主义心态，呼吁金砖国家捍卫多边体系、建立多币种支付体系以限制美国的制裁权。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>India Today · 9月10日</span></span>
+            <a class="item-link" href="https://www.indiatoday.in/amp/india/story/brics-summit-india-china-new-world-order-modi-xi-jinping-jeffrey-sachs-2991663-2026-09-10" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-statement">#公开表态</span><span class="tag tag-forum">#论坛活动</span></div>
+          <div class="item-title">在马来西亚发表"霸权独白与全球对话"主旨演讲</div>
+          <div class="item-summary">9月12日，萨克斯以线上方式在马来西亚i-COME 2026论坛发表题为《霸权独白与全球对话》的主旨演讲，指出西方主导时代正在终结，世界正走向多极体系。他批评国际舆论场上的"霸权式独白"，呼吁建立真正多元的全球对话，让不同文明与国家的声音都能被听见。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>马来西亚媒体（i-COME 2026）· 9月12日</span></span>
+            <a class="item-link" href="https://124.217.235.41/news/east-malaysia/2026/09/12/847452" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-statement">#公开表态</span><span class="tag tag-policy">#政策观点</span></div>
+          <div class="item-title">金砖峰会后称"不反美而反单边主义"</div>
+          <div class="item-summary">9月15日，第十八次金砖峰会及《新德里宣言》发布后，萨克斯接受采访表示，金砖国家"并非反对美国，而是反对美国的单边主义"。他支持推动美元替代方案，指出华盛顿将美元"武器化"、以切断SWIFT相威胁的做法，正在促使各国寻求货币多元化。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>ANI News · 9月15日</span></span>
+            <a class="item-link" href="https://www.aninews.in/news/world/asia/brics-not-against-us-but-us-unilateralism-economist-sachs-backs-dollar-alternative-amid-its-weaponisation20260915115518/" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 马凯硕 -->
+    <div class="card" data-tags="公开表态,政策观点,论坛活动" tabindex="0">
+      <div class="card-person-header">
+        <div class="person-badge">马</div>
+        <div class="person-info">
+          <span class="person-name">马凯硕</span>
+          <span class="person-role">高级顾问 · 新加坡国立大学李光耀公共政策学院创始院长</span>
+        </div>
+        <span class="person-count">3 条动态</span>
+      </div>
+      <div class="card-items">
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-statement">#公开表态</span><span class="tag tag-forum">#论坛活动</span><span class="tag tag-policy">#政策观点</span></div>
+          <div class="item-title">槟城和平对话谈"东昇西降"</div>
+          <div class="item-summary">9月5日，马凯硕在马来西亚首届槟城和平对话论坛上表示，世界正处在"东升西降"进程中，亚洲影响力即将与西方比肩，但尚未完全到达临界点。他认为亚洲虽已摆脱殖民统治数十年，仍未彻底摆脱"精神殖民"心态，缺乏对西方说"不"的信心；而西方自信正在丧失，亚洲信心正在增强。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>太报（槟城和平对话）· 9月5日</span></span>
+            <a class="item-link" href="https://dev.taisounds.news/news/content/84/287157" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-statement">#公开表态</span><span class="tag tag-policy">#政策观点</span></div>
+          <div class="item-title">就台湾问题发出警示</div>
+          <div class="item-summary">9月，马凯硕多次就台湾问题表态，称台湾仍是亚洲地区"最危险的冲突引爆点"，呼吁台湾当局不要宣布"独立"、不要触碰红线，否则将"自动触发一场大战"。他警告两岸冲突将带来难以想象的后果，东南亚无法置身事外，美国可能被卷入，全球经济将受重创，建议通过外交协商寻求和平解决。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>搜狐 / 华人头条 · 9月</span></span>
+            <a class="item-link" href="https://www.sohu.com/a/1073904691_114911" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-statement">#公开表态</span><span class="tag tag-policy">#政策观点</span></div>
+          <div class="item-title">呼吁西方摒弃"非黑即白"思维</div>
+          <div class="item-summary">9月12日，马凯硕接受CGTN采访，呼吁西方停止用"非黑即白"的对立思维看待世界，认为这种思维忽视了全球政治制度的复杂性。他指出，不同国家基于自身文明历史与现实需求作出不同的制度选择，国际社会应以更包容、更务实的视角理解多元发展道路。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>CGTN · 9月12日</span></span>
+            <a class="item-link" href="https://www.163.com/dy/article/L6KGJG7T05568W0A.html" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 蔡冠深 -->
+    <div class="card" data-tags="公开表态,论坛活动,签约合作,高层会见,外事访问" tabindex="0">
+      <div class="card-person-header">
+        <div class="person-badge">蔡</div>
+        <div class="person-info">
+          <span class="person-name">蔡冠深</span>
+          <span class="person-role">理事 · 香港中华总商会会长</span>
+        </div>
+        <span class="person-count">3 条动态</span>
+      </div>
+      <div class="card-items">
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-statement">#公开表态</span><span class="tag tag-forum">#论坛活动</span></div>
+          <div class="item-title">出席香港工商界国庆酒会并致辞</div>
+          <div class="item-summary">9月4日，香港中华总商会会长蔡冠深出席香港工商界庆祝中华人民共和国成立77周年国庆酒会并致辞，期望新一份《施政报告》及香港首个五年规划将宏观蓝图转化为实际行动，让政策红利惠及社会各界；并谈及工商界在北部都会区建设、产业融合与塑造城市品牌等方面的作用。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>星岛头条 · 9月4日</span></span>
+            <a class="item-link" href="https://m.stnn.cc/detail/6a9a5ee5b4b06b3f17f0dea9.html" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-forum">#论坛活动</span><span class="tag tag-cooperation">#签约合作</span><span class="tag tag-statement">#公开表态</span></div>
+          <div class="item-title">主持第十二届海峡两岸暨港澳经贸论坛</div>
+          <div class="item-summary">9月15日，第十二届海峡两岸暨港澳经贸论坛在香港举行，蔡冠深出席并致辞，就深化两岸暨港澳合作提出联合创新、企业联合出海、数字化供应链与跨境电商、跨境绿色金融四点建议，推动各方在新格局下共拓发展机遇。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>香港商报 / 新华澳报 · 9月15日</span></span>
+            <a class="item-link" href="https://www.hkcd.com.hk/hkcdweb/content/2026/09/15/content_8775099.html" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-meeting">#高层会见</span><span class="tag tag-cooperation">#签约合作</span><span class="tag tag-visit">#外事访问</span></div>
+          <div class="item-title">率团出席首届哈中投资论坛获托卡耶夫会见</div>
+          <div class="item-summary">9月25日，蔡冠深率中国大型企业家代表团出席在阿拉木图举行的首届哈萨克斯坦—中国投资论坛。期间哈萨克斯坦总统托卡耶夫会见蔡冠深，肯定其为推动哈中经贸合作作出的贡献，并邀请香港中华总商会成为该论坛主要机构合作伙伴之一，双方还谈及人工智能、数字技术、金融基础设施与工业合作等方向。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>香港商报 / 哈通社 · 9月25日</span></span>
+            <a class="item-link" href="https://www.hkcd.com.hk/hkcdweb/content/2026/09/27/content_8777352.html" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 何超琼 -->
+    <div class="card" data-tags="公开表态,论坛活动,企业动态,签约合作" tabindex="0">
+      <div class="card-person-header">
+        <div class="person-badge">何</div>
+        <div class="person-info">
+          <span class="person-name">何超琼</span>
+          <span class="person-role">高级顾问 · 中华全国工商业联合会副主席</span>
+        </div>
+        <span class="person-count">3 条动态</span>
+      </div>
+      <div class="card-items">
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-statement">#公开表态</span><span class="tag tag-forum">#论坛活动</span><span class="tag tag-corporate">#企业动态</span></div>
+          <div class="item-title">出席"文旅民企进边疆·新疆行"活动</div>
+          <div class="item-summary">9月1日，何超琼以全国工商联副主席、全联旅游业商会执行会长身份出席在乌鲁木齐举行的"文旅民企进边疆·新疆行"活动并作主题发言，表示新疆文旅资源具备世界级吸引力与对话能力，期盼推动文博领域持续发力，让新疆历史文化成为讲好中国故事的亮丽名片，并吸引更多粤港澳大湾区及海外游客走进新疆。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>天山网 / 新疆日报 · 9月1日</span></span>
+            <a class="item-link" href="https://tnews.xjmty.com/app/slyapp/sh/202609/t20260901_36184764.html" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-statement">#公开表态</span><span class="tag tag-cooperation">#签约合作</span><span class="tag tag-corporate">#企业动态</span></div>
+          <div class="item-title">在中国文旅产业博览会呼吁跨国界合作</div>
+          <div class="item-summary">9月3日，中国文旅产业博览会在天津开幕，何超琼以全国工商联副主席、世界旅游经济论坛副主席兼秘书长身份致辞，呼吁推动更多跨国界文旅产业链合作，让中国文旅创新产品走向世界，也让全球文旅资本与先进经验汇聚中国。她指出文旅融合不是简单叠加，而是通过商业模式创新实现"1+1>2"。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>东方财富 / 中国文旅 · 9月3日</span></span>
+            <a class="item-link" href="https://guba.eastmoney.com/news,cjpl,1768565008.html" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-statement">#公开表态</span><span class="tag tag-forum">#论坛活动</span><span class="tag tag-corporate">#企业动态</span></div>
+          <div class="item-title">领衔出席巾帼科创产业对接活动</div>
+          <div class="item-summary">9月19日，巾帼科创产业对接活动暨新质生产力（南山）融合发展会议在深圳举行，何超琼以全国工商联副主席身份领衔出席，300余位女企业家代表与会。她表示"在推动新质生产力发展的进程中，巾帼力量从未缺失"，寄语女企业家把握南山产业链与政策红利，实现互利共赢。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>新浪财经 / 搜狐 · 9月19日</span></span>
+            <a class="item-link" href="https://finance.sina.com.cn/roll/2026-09-20/doc-inismzuz2533729.shtml" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 潘基文 -->
+    <div class="card" data-tags="高层会见,政策观点,论坛活动" tabindex="0">
+      <div class="card-person-header">
+        <div class="person-badge">潘</div>
+        <div class="person-info">
+          <span class="person-name">潘基文</span>
+          <span class="person-role">理事长 · 联合国第八任秘书长</span>
+        </div>
+        <span class="person-count">2 条动态</span>
+      </div>
+      <div class="card-items">
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-meeting">#高层会见</span><span class="tag tag-policy">#政策观点</span></div>
+          <div class="item-title">在首尔会见哈萨克斯坦总统托卡耶夫</div>
+          <div class="item-summary">9月14日，哈萨克斯坦总统托卡耶夫对韩国进行国事访问期间，博鳌亚洲论坛理事长潘基文与其在首尔会晤，就联合国改革、可持续发展和全球气候议程交换意见。潘基文以全球绿色增长研究所（GGGI）主席身份介绍支持发展中国家绿色转型的努力，欢迎哈萨克斯坦在可持续发展领域取得的成就，并表示愿在应对全球气候议程上加强合作。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>哈萨克斯坦总统府新闻 · 9月14日</span></span>
+            <a class="item-link" href="https://thegulfobserver.com/tokayev-ban-ki-moon-discuss-un-reform-and-sustainable-development-in-seoul/" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-forum">#论坛活动</span><span class="tag tag-policy">#政策观点</span></div>
+          <div class="item-title">潘基文基金会参与纽约气候周</div>
+          <div class="item-summary">9月20日至27日，潘基文基金会参与纽约气候周（Climate Week NYC），在纽约设点推动全球气候适应议题进入议程。作为联合国前秘书长，潘基文长期将气候变化与可持续发展作为重点，本届气候周上其基金会重点呼吁各国将气候适应提升到与减排同等重要的位置。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>潘基文基金会 · 9月20日</span></span>
+            <a class="item-link" href="https://bankimoon.org/event/climate-week-nyc/" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 敦·帕马威奈 -->
+    <div class="card" data-tags="论坛活动,公开表态,政策观点" tabindex="0">
+      <div class="card-person-header">
+        <div class="person-badge">敦</div>
+        <div class="person-info">
+          <span class="person-name">敦·帕马威奈</span>
+          <span class="person-role">理事 · 泰国前副总理兼外长</span>
+        </div>
+        <span class="person-count">1 条动态</span>
+      </div>
+      <div class="card-items">
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-forum">#论坛活动</span><span class="tag tag-statement">#公开表态</span><span class="tag tag-policy">#政策观点</span></div>
+          <div class="item-title">出席博鳌亚洲论坛亚太区域合作圆桌会并致辞</div>
+          <div class="item-summary">9月15日，博鳌亚洲论坛亚太区域合作圆桌会在海口开幕。论坛理事、泰国前副总理兼外长敦·帕马威奈致辞指出，海南自贸港建设将重塑亚太经贸与互联互通格局；当前世界面临大流行病风险、气候灾害、技术治理缺位、保护主义与贸易武器化、地缘失衡五大威胁。他呼吁亚太成员充分合作，主张RCEP、CPTPP与东盟等机制互补，以亚太自贸区（FTAAP）为基石推进跨领域合作，凝聚"亚洲世纪"的团结愿景。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>博鳌亚洲论坛官网 · 9月15日</span></span>
+            <a class="item-link" href="https://www.hainan.gov.cn/hainan/szfldhd/202609/c54f0a3f82ce4553bc9aa409eb4e32b9.shtml" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 素拉杰 -->
+    <div class="card" data-tags="公开表态,政策观点,论坛活动" tabindex="0">
+      <div class="card-person-header">
+        <div class="person-badge">素</div>
+        <div class="person-info">
+          <span class="person-name">素拉杰·沙提拉泰</span>
+          <span class="person-role">高级顾问 · 泰国前副总理兼外长</span>
+        </div>
+        <span class="person-count">1 条动态</span>
+      </div>
+      <div class="card-items">
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-statement">#公开表态</span><span class="tag tag-policy">#政策观点</span><span class="tag tag-forum">#论坛活动</span></div>
+          <div class="item-title">出席中国经济与社会论坛并发表演讲</div>
+          <div class="item-summary">9月15日，素拉杰·沙提拉泰以朱拉隆功大学理事会主席身份，出席在杭州举行的"中国经济与社会论坛2026"并发表演讲，主题为"完善全球治理体系，构建人类命运共同体"。他提出五项原则：从强权政治转向合作安全，建设包容公平有韧性的全球化，建立应对气候变化、人工智能等共同挑战的治理机制，推动真正多边主义，鼓励大国承担更大责任。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>朱拉隆功大学官网 · 9月15日</span></span>
+            <a class="item-link" href="https://www.chula.ac.th/en/news/426840/" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 巴特尔 -->
+    <div class="card" data-tags="论坛活动,政策观点" tabindex="0">
+      <div class="card-person-header">
+        <div class="person-badge">巴</div>
+        <div class="person-info">
+          <span class="person-name">巴特尔</span>
+          <span class="person-role">理事 · 海南省委常委、常务副省长</span>
+        </div>
+        <span class="person-count">1 条动态</span>
+      </div>
+      <div class="card-items">
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-forum">#论坛活动</span><span class="tag tag-policy">#政策观点</span></div>
+          <div class="item-title">出席全球数字贸易博览会（海南主宾省）</div>
+          <div class="item-summary">9月23日至27日，第五届全球数字贸易博览会在杭州举办，海南为本届数贸会主宾省。博鳌亚洲论坛理事、海南省委常委、常务副省长巴特尔出席"数启自贸·链通全球"海南自由贸易港数字跨境应用推介会等活动，推动海南自贸港数字经济发展机遇与全球数字贸易合作对接。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>海南日报 / 南海网 · 9月24日</span></span>
+            <a class="item-link" href="https://hn.news.163.com/26/0925/09/L7LLL6FI042598V8.html" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 论坛综合动态 -->
+    <div class="card" data-tags="论坛活动,政策观点" tabindex="0">
+      <div class="card-person-header">
+        <div class="person-badge">综</div>
+        <div class="person-info">
+          <span class="person-name">论坛综合动态</span>
+          <span class="person-role">理事会 / 咨询委员会集体活动</span>
+        </div>
+        <span class="person-count">1 条动态</span>
+      </div>
+      <div class="card-items">
+        <div class="card-item">
+          <div class="item-tags"><span class="tag tag-forum">#论坛活动</span><span class="tag tag-policy">#政策观点</span></div>
+          <div class="item-title">亚太区域合作圆桌会在海口举行</div>
+          <div class="item-summary">9月15日至17日，博鳌亚洲论坛亚太区域合作圆桌会在海南海口举行，主题为"迈向亚太共同体：愿景与行动"，设16个分议题，来自32个国家和地区约300名代表及8个国际组织代表与会。会议聚焦加快区域经济一体化、深化互联互通与供应链融合、能源经济安全、AI时代数字经济与全球治理等议题，与会嘉宾提出探索构建"亚洲能源伙伴关系"。会上宣布博鳌亚洲论坛2027年年会将于2027年3月24日至27日在博鳌举行。</div>
+          <div class="item-meta">
+            <span class="item-source"><span class="source-icon">📰</span><span>博鳌亚洲论坛官网 / 新华社 · 9月15日</span></span>
+            <a class="item-link" href="https://finance.sina.com.cn/jjxw/2026-09-16/doc-iniryzky3462623.shtml" target="_blank" rel="noopener">查看原文 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ========== 页脚 ========== -->
+<footer class="footer">
+  <p>由 <span class="brand">博鳌亚洲论坛 · 理事及高级顾问动态</span> 自动生成 · 资讯来源包括政府官网、论坛官网、企业新闻中心、权威媒体 · 仅供信息参考</p>
+  <p style="margin-top:4px;">Generated 2026-09-28 · 数据覆盖 2026年9月</p>
+</footer>
+
+<!-- ========== 标签筛选脚本 ========== -->
+<script>
+(function() {
+  var filterBar = document.getElementById('tagFilterBar');
+  var cards = document.querySelectorAll('.card');
+
+  filterBar.addEventListener('click', function(e) {
+    var tagEl = e.target.closest('.tag-filter');
+    if (!tagEl) return;
+    filterBar.querySelectorAll('.tag-filter').forEach(function(t) { t.classList.remove('active'); });
+    tagEl.classList.add('active');
+    var selectedTag = tagEl.dataset.tag;
+    cards.forEach(function(card) {
+      if (selectedTag === 'all') {
+        card.classList.remove('hidden');
+      } else {
+        var cardTags = (card.dataset.tags || '').split(',');
+        card.classList.toggle('hidden', cardTags.indexOf(selectedTag) === -1);
+      }
+    });
+  });
+
+  // 键盘导航 — 左右键在可见卡片间切换
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      var visibleCards = Array.from(cards).filter(function(c) { return !c.classList.contains('hidden'); });
+      if (!visibleCards.length) return;
+      var current = document.activeElement;
+      var idx = visibleCards.indexOf(current);
+      if (e.key === 'ArrowRight' && idx < visibleCards.length - 1) { visibleCards[idx + 1].focus(); e.preventDefault(); }
+      else if (e.key === 'ArrowLeft' && idx > 0) { visibleCards[idx - 1].focus(); e.preventDefault(); }
+    }
+  });
+})();
+</script>
+</body>
+</html>
